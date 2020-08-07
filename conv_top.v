@@ -120,7 +120,7 @@ module conv_top
 	wire [31:0] data_out_1;
 	
 	
-	imageArray #(32,1,2,2,3,3) imAr1( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL
+	imageArray #(32,1,48,48,3,3) imAr1( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL
 		.clk(clk),
 		.rst_(rst_),
 		.control_data(control_image),
@@ -131,7 +131,7 @@ module conv_top
 		.data_out(image_out_1)
 		);
 
-	weightArray #(32,1,2,2,3,3,1) wAr1( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
+	weightArray #(32,1,48,48,3,3,20) wAr1( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.control_weight(control_weight1),
@@ -146,7 +146,7 @@ module conv_top
 		.weight_out(weight_out_1),
 		.bias_out(bias_out_1)
 		);
-	conv_main #(32,1,2,2,3,3,1) cvm1( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
+	conv_main #(32,1,48,48,3,3,20) cvm1( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.ready_bias(weight_rd1_1),
@@ -163,7 +163,7 @@ module conv_top
 		);
 
 
-	max_pool #(32,1,1,2,2,2,2) mpl1( //BIT,BATCH_BEFORE,CHANNEL_BEFORE,COL,ROW,M_COL
+	max_pool #(32,20,1,48,48,2,2) mpl1( //BIT,BATCH_BEFORE,CHANNEL_BEFORE,COL,ROW,M_COL
 		.clk(clk),
 		.rst_(rst_),
 		.ready_maxpool(weight_rd1_1),
@@ -190,7 +190,7 @@ module conv_top
 	wire [31:0] bias_out_2;
 	wire [31:0] data_out_2;
 
-	imageArray #(32,1,2,2,3,3) imAr2( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL
+	imageArray #(32,20,24,24,3,3) imAr2( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL
 		.clk(clk),
 		.rst_(rst_),
 		.control_data(data_rd_1),
@@ -201,7 +201,7 @@ module conv_top
 		.data_out(image_out_2)
 		);
 
-	weightArray #(32,1,2,2,3,3,1) wAr2( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
+	weightArray #(32,20,24,24,3,3,20) wAr2( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.control_weight(control_weight2),
@@ -217,7 +217,7 @@ module conv_top
 		.bias_out(bias_out_2)
 		);
 
-	conv_main #(32,1,2,2,3,3,1) cvm2( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
+	conv_main #(32,20,24,24,3,3,20) cvm2( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.ready_bias(weight_rd1_2),
@@ -233,7 +233,7 @@ module conv_top
 		.fb_bias(conv_fb4_2)
 		);
 
-	max_pool #(32,1,1,2,2,2,2) mpl2( //BIT,BATCH_BEFORE,CHANNEL_BEFORE,COL,ROW,M_COL
+	max_pool #(32,20,20,24,24,2,2) mpl2( //BIT,BATCH_BEFORE,CHANNEL_BEFORE,COL,ROW,M_COL
 		.clk(clk),
 		.rst_(rst_),
 		.ready_maxpool(weight_rd1_2),
@@ -260,7 +260,7 @@ module conv_top
 	wire [31:0] bias_out_3;
 	wire [31:0] data_out_3;
 
-	imageArray #(32,1,2,2,3,3) imAr3( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL
+	imageArray #(32,20,12,12,3,3) imAr3( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL
 		.clk(clk),
 		.rst_(rst_),
 		.control_data(data_rd_2),
@@ -271,7 +271,7 @@ module conv_top
 		.data_out(image_out_3)
 		);
 
-	weightArray #(32,1,2,2,3,3,1) wAr3(//BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
+	weightArray #(32,20,12,12,3,3,24) wAr3(//BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.control_weight(control_weight3),
@@ -287,7 +287,7 @@ module conv_top
 		.bias_out(bias_out_3)
 		);
 
-	conv_main #(32,1,2,2,3,3,1) cvm3( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
+	conv_main #(32,20,12,12,3,3,24) cvm3( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.ready_bias(weight_rd1_3),
@@ -303,7 +303,7 @@ module conv_top
 		.fb_bias(conv_fb4_3)
 		);
 
-	max_pool #(32,1,1,2,2,2,2) mpl3( //BIT,BATCH_BEFORE,CHANNEL_BEFORE,COL,ROW,M_COL
+	max_pool #(32,24,20,12,12,2,2) mpl3( //BIT,BATCH_BEFORE,CHANNEL_BEFORE,COL,ROW,M_COL
 		.clk(clk),
 		.rst_(rst_),
 		.ready_maxpool(weight_rd1_3),
@@ -330,7 +330,7 @@ module conv_top
 	wire [31:0] bias_out_4;
 	wire [31:0] data_out_4;
 
-	imageArray #(32,1,1,1,3,3) imAr4( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL
+	imageArray #(32,24,6,6,3,3) imAr4( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL
 		.clk(clk),
 		.rst_(rst_),
 		.control_data(data_rd_3),
@@ -342,7 +342,7 @@ module conv_top
 		);
 
 
-	weightArray #(32,1,1,1,3,3,1) wAr4(//BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
+	weightArray #(32,24,6,6,3,3,28) wAr4(//BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.control_weight(control_weight4),
@@ -358,7 +358,7 @@ module conv_top
 		.bias_out(bias_out_4)
 		);
 
-	conv_main #(32,1,1,1,3,3,1) cvm4( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
+	conv_main #(32,24,6,6,3,3,28) cvm4( //BIT,CHANNEL,ROW,COL,F_ROW,F_COL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.ready_bias(weight_rd1_4),
@@ -374,7 +374,7 @@ module conv_top
 		.fb_bias(conv_fb4_4)
 		);
 
-	max_pool #(32,1,1,1,1,2,2) mpl4( //BIT,BATCH_BEFORE,CHANNEL_BEFORE,COL,ROW,M_COL,M-ROW
+	max_pool #(32,28,24,6,6,2,2) mpl4( //BIT,BATCH_BEFORE,CHANNEL_BEFORE,COL,ROW,M_COL,M-ROW
 		.clk(clk),
 		.rst_(rst_),
 		.ready_maxpool(weight_rd1_4),
@@ -393,7 +393,7 @@ module conv_top
 	wire [31:0] bias_out_6;
 	wire [31:0] data_out_6;
 
-	weight_fc #(32,3,3,1,1) wfc1(//BIT,COL,ROW,CHANNEL,BATCH
+	weight_fc #(32,3,3,28,24) wfc1(//BIT,COL,ROW,CHANNEL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.control_weight(control_weight6),
@@ -406,7 +406,7 @@ module conv_top
 		.bias_out(bias_out_6)
 		);
 
-	fc #(32,3,3,1,1) fc1(//BIT,COL,ROW,CHANNEL,BATCH
+	fc #(32,3,3,28,24) fc1(//BIT,COL,ROW,CHANNEL,BATCH
 		.clk(clk),
 		.rst_(rst_),
 		.ready_data(data_rd_4),
@@ -416,8 +416,47 @@ module conv_top
 		.data_out(data_out_6),
 		.fb_weight(fc_fb1_6),
 		.fb_bias(fc_fb2_6),
-		.data_ready(data_ready_out_fc)
+		.data_ready(data_rd_6)
 		);
+
+	////////////////////////////////////////////Layer7///////////////////////////////////////////
+	////////////////////////////////////////Fully_connected/relu/////////////////////////////////
+
+	wire fc_fb1_7;
+	wire fc_fb2_7;
+	//wire data_rd_7;
+	wire [31:0] weight_out_7;
+	wire [31:0] bias_out_7;
+	//wire [31:0] data_out_7;
+
+	weight_fc #(32,1,1,24,6) wfc2(//BIT,COL,ROW,CHANNEL,BATCH
+		.clk(clk),
+		.rst_(rst_),
+		.control_weight(control_weight7),
+		.control_bias(control_bias7),
+		.fb_weight(fc_fb1_7),
+		.fb_bias(fc_fb2_7),
+		.weight(weight7),
+		.bias(bias7),
+		.weight_out(weight_out_7),
+		.bias_out(bias_out_7)
+		);
+
+//	edit them delay = kich thuoc ma tran truoc khi vao fc1
+//	DELAY = (3*3)*28kenh 
+
+	fc_final #(32,1,1,24,6,252) fc2(         //BIT,COL,ROW,CHANNEL,BATCH_BEFORE 
+		.clk(clk),
+		.rst_(rst_),
+		.ready_data(data_rd_6),
+		.data_in(data_out_6),
+		.weight(weight_out_7),
+		.bias(bias_out_7),
+		.data_out(data_out),   
+		.fb_weight(fc_fb1_7),    
+		.fb_bias(fc_fb2_7),
+		.data_ready(data_ready_out_fc)   
+		); 
 
 endmodule
 
