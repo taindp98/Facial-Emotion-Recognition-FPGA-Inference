@@ -12,7 +12,7 @@ We aim to classify 7 elementary types of human emotions: angry, fear, disgust, h
 
 ## Requirements
 ```bash
-$pip install -r requirements.txt
+pip install -r requirements.txt
 ``````
 ## Dataset
 
