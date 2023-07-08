@@ -1,3 +1,33 @@
 ## Facial Expression Recognition System Using FPGA-Based Convolutional Neural Network
 
-Emotion detection has become one of the most significant aspects to consider in any project related to affective computing. There are several researches in emotion recognition, where convolutional neural network is considered as an efficient algorithm that achieves the state-of-the-art performance in image recognition. There have been plenty of methods applying CNN model and conducting in software. However, traditional software-based computation is not fast enough to meet the demand of real-time image processing. Therefore, we propose an efficient method for expression recognition using FPGA-based. This model is used for classifying seven elementary types of human emotions: angry, fear, disgust, happy, sad and neutral by extracting features through those layers, respectively. We also tested the functions of this model on FPGA simulation and achieved over 65% of accuracy using FER-2013 dataset.
+Emotion detection has become one of the most significant aspects to consider in any project related to affective computing.
+
+We aim to classify 7 elementary types of human emotions: angry, fear, disgust, happy, sad and neutral by extracting features through those layers, respectively. 
+
+## Table of contents
+- Requirements
+- Dataset
+- Usage
+- Results
+
+## Requirements
+```bash
+$pip install -r requirements.txt
+``````
+## Dataset
+
+The data consists of 48 x 48 pixel grayscale images of faces. The faces have been automatically registered so that the face is more or less centred and occupies about the same amount of space in each image.
+
+The task is to categorize each face based on the emotion shown in the facial expression into one of seven categories (0=Angry, 1=Disgust, 2=Fear, 3=Happy, 4=Sad, 5=Surprise, 6=Neutral). The training set consists of 28,709 examples and the public test set consists of 3,589 examples.
+
+![image](./data/visual-fer-2013.jpg)
+
+## Usage
+
+
+## Results
+We also tested the functions of this model on FPGA simulation and achieved over 65% of accuracy using FER-2013 dataset.
+## Citation
+```
+T.NGUYEN et al., "Self-supervised for Gastrointestinal Pathologies Endoscopy Image Classification with Triplet Loss", in 2022 Université Sorbonne Paris Nord (USPN).
+```
