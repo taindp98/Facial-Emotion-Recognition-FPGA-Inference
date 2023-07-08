@@ -29,5 +29,10 @@ The task is to categorize each face based on the emotion shown in the facial exp
 We also tested the functions of this model on FPGA simulation and achieved over 65% of accuracy using FER-2013 dataset.
 ## Citation
 ```
-T.NGUYEN et al., "Self-supervised for Gastrointestinal Pathologies Endoscopy Image Classification with Triplet Loss", in 2022 Université Sorbonne Paris Nord (USPN).
+@article{Phuc2021FacialER,
+  title={Facial Expressions Recognition System Using FPGA-Based Convolutional Neural Network},
+  author={Tai Nguyen Duong Phuc and Nam Nguyen Nhut and Nguyen Trinh and Linh Tran},
+  journal={Research in Intelligent and Computing in Engineering},
+  year={2021}
+}
 ```
