@@ -1,8 +1,8 @@
-## Facial Expression Recognition System Using FPGA-Based Convolutional Neural Network
+## Implementation of a Facial Expression Recognition System Using an FPGA-Based Convolutional Neural Network
 
-Emotion detection has become one of the most significant aspects to consider in any project related to affective computing.
+This study was published in Research in Intelligent and Computing in Engineering: Select Proceedings of RICE 2020.
 
-We aim to classify 7 elementary types of human emotions: angry, fear, disgust, happy, sad and neutral by extracting features through those layers, respectively. 
+Emotion detection has become one of the most significant aspects to consider in any project related to Affective Computing. There are several researches in emotion recognition, where a Convolutional Neural Network is considered an efficient algorithm that achieves state-of-the-art performance in image recognition. Plenty of methods have applied the CNN model and conducted it in software. However, traditional software-based computation is not fast enough to meet the demand of real-time image processing. So, we'd like to propose an efficient method for expression recognition using FPGA-based. This model is used for classifying seven elementary types of human emotions: angry, fear, disgust, happy, sad, and neutral by extracting features through those layers respectively. We also tested the functions of this model on FPGA simulation and achieved over 65% accuracy using the FER2013 dataset.
 
 ## Table of contents
 - Requirements
@@ -26,7 +26,16 @@ The task is to categorize each face based on the emotion shown in the facial exp
 
 
 ## Results
-We also tested the functions of this model on FPGA simulation and achieved over 65% of accuracy using FER-2013 dataset.
+We also tested the functions of this model on FPGA simulation and achieved over 65% of accuracy using FER-2013 dataset. There are three kinds of hardware resource on FPGA: adaptive logic modules (ALMs), digital signal processing (DPSs) and RAM blocks. In this work, we used Quartus Prime version 17.1 to synthesized RTL design for DE-10 standard board. The comparison result has been received and display in the following Table VI. Fig. 11 shows the simulation result of our systems.
+
+| No. | Comparison object     | Reference design | Anonymous | Our design |
+|-----|-----------------------|----------------------|----------------|------------|
+| 1   | Accuracy              | 60.3%                | 59.8%          | 65%        |
+| 2   | DSPs                  | 152                  | 108            |            |
+| 3   | Clock frequency       | 200MHz               | 200MHz         |            |
+| 4   | Signal appears output | After 2.404s         | After 2.079s   |            |
+
+
 ## Citation
 ```
 @article{Phuc2021FacialER,
