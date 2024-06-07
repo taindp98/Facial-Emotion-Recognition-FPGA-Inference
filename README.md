@@ -1,6 +1,6 @@
 ## Implementation of a Facial Expression Recognition System Using an FPGA-Based Convolutional Neural Network
 
-This study was published in Research in Intelligent and Computing in Engineering: Select Proceedings of RICE 2020.
+This study was published in Research in Intelligent and Computing in Engineering: Select Proceedings of RICE 2021.
 
 Emotion detection has become one of the most significant aspects to consider in any project related to Affective Computing. There are several researches in emotion recognition, where a Convolutional Neural Network is considered an efficient algorithm that achieves state-of-the-art performance in image recognition. Plenty of methods have applied the CNN model and conducted it in software. However, traditional software-based computation is not fast enough to meet the demand of real-time image processing. So, we'd like to propose an efficient method for expression recognition using FPGA-based. This model is used for classifying seven elementary types of human emotions: angry, fear, disgust, happy, sad, and neutral by extracting features through those layers respectively. We also tested the functions of this model on FPGA simulation and achieved over 65% accuracy using the FER2013 dataset.
 
